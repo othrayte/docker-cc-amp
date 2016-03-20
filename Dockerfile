@@ -19,10 +19,9 @@ RUN apt-get update && apt-get install -y \
   openjdk-7-jre \
 && rm -rf /var/lib/apt/lists/*
 
-RUN groupadd -r AMP && useradd -r -g AMP -d /home/AMP -m AMP
-
-
 RUN \
+  groupadd -r AMP && \
+  useradd -r -g AMP -d /home/AMP -m AMP && \
   mkdir ~/AMP && \
   cd ~/AMP && \
   wget http://cubecoders.com/Downloads/ampinstmgr.zip && \
