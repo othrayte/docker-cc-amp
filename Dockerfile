@@ -22,11 +22,11 @@ RUN apt-get update && apt-get install -y \
 RUN \
   groupadd -r AMP && \
   useradd -r -g AMP -d /home/AMP -m AMP && \
-  mkdir ~/AMP && \
-  cd ~/AMP && \
+  mkdir /home/AMP/AMP && \
+  cd /home/AMP/AMP && \
   wget http://cubecoders.com/Downloads/ampinstmgr.zip && \
   unzip ampinstmgr.zip && \
-  rm -fi ampinstmgr.zip
+  rm -fi --interactive=never ampinstmgr.zip
 
 # Define working directory.
 WORKDIR /home/AMP/AMP
