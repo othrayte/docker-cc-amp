@@ -19,7 +19,7 @@ RUN apt-get update && apt-get install -y \
   openjdk-7-jre \
 && rm -rf /var/lib/apt/lists/*
 
-RUN groupadd -r AMP && RUN useradd -r -g AMP -d /home/AMP AMP
+RUN groupadd -r AMP && useradd -r -g AMP -d /home/AMP AMP
 
 USER AMP
 
