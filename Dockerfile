@@ -16,7 +16,7 @@ RUN apt-get update && apt-get install -y \
   unzip \
   git \
   wget \
-  openjdk-8-jre \
+  openjdk-7-jre \
 && rm -rf /var/lib/apt/lists/*
 
 RUN groupadd -r AMP && RUN useradd -r -g AMP -d /home/AMP AMP
