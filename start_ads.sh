@@ -40,5 +40,5 @@ if [ -z ${LICENSE+x} ]; then echo "A license for AMP from cubecoders.com is requ
 if [ -z ${USERNAME+x} ]; then echo "A username must be specified. eg --username amp_user"; exit 1; fi
 if [ -z ${PASSWORD+x} ]; then echo "A password must be specified. eg --password P4$$w0Rd"; exit 1; fi
 
-exec "./ampinstmgr CreateInstance ADS ADSInstance $HOST $PORT $LICENSE $PASSWORD +Core.Login.Username $USERNAME"
-exec "./ampinstmgr StartInstance ADSInstance"
+exec ./ampinstmgr CreateInstance ADS ADSInstance $HOST $PORT $LICENSE $PASSWORD +Core.Login.Username $USERNAME
+exec ./ampinstmgr StartInstance ADSInstance
