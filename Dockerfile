@@ -41,7 +41,7 @@ RUN \
 USER AMP
 
 # Define default command.
-CMD ["start_ads.sh"]
+CMD ["./start_ads.sh"]
 
 # Expose ports.
 EXPOSE 8080
