@@ -21,7 +21,6 @@ RUN apt-get update && apt-get install -y \
 
 RUN groupadd -r AMP && useradd -r -g AMP -d /home/AMP -m AMP
 
-USER AMP
 
 RUN \
   mkdir ~/AMP && \
@@ -34,6 +33,12 @@ RUN \
 WORKDIR /home/AMP/AMP
 
 COPY start_ads.sh /home/AMP/AMP/
+
+RUN \
+  chown AMP:AMP ./start_ads.sh && \
+  chmod +x ./start_ads.sh
+
+USER AMP
 
 # Define default command.
 CMD ["start_ads.sh"]
