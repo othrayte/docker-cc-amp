@@ -24,11 +24,11 @@ RUN groupadd -r AMP && useradd -r -g AMP -d /home/AMP AMP
 USER AMP
 
 RUN \
-  mkdir ~/AMP \
-  cd ~/AMP \
-  wget http://cubecoders.com/Downloads/ampinstmgr.zip \
-  unzip ampinstmgr.zip \
-  rm -i ampinstmgr.zip \
+  mkdir ~/AMP && \
+  cd ~/AMP && \
+  wget http://cubecoders.com/Downloads/ampinstmgr.zip && \
+  unzip ampinstmgr.zip && \
+  rm -i ampinstmgr.zip
 
 # Define working directory.
 WORKDIR /home/AMP/AMP
