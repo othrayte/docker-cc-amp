@@ -26,7 +26,7 @@ RUN \
   cd ~/AMP && \
   wget http://cubecoders.com/Downloads/ampinstmgr.zip && \
   unzip ampinstmgr.zip && \
-  rm -i ampinstmgr.zip
+  rm -fi ampinstmgr.zip
 
 # Define working directory.
 WORKDIR /home/AMP/AMP
