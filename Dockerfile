@@ -33,6 +33,8 @@ RUN \
 # Define working directory.
 WORKDIR /home/AMP/AMP
 
+COPY start_ads.sh /home/AMP/AMP/
+
 # Define default command.
 CMD ["start_ads.sh"]
 
