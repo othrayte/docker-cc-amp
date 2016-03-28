@@ -41,7 +41,7 @@ esac
 shift # past argument or value
 done
 
-if [ ! -d ~/.ampdata/instances/Instance/]; do
+if [ ! -d ~/.ampdata/instances/Instance/ ]; then
     if [ -z ${LICENSE+x} ]; then echo "A license for AMP from cubecoders.com is required and must be specified as --license_key xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"; exit 1; fi
     if [ -z ${USERNAME+x} ]; then echo "A username must be specified. eg --username amp_user"; exit 1; fi
     if [ -z ${PASSWORD+x} ]; then echo "A password must be specified. eg --password P4$$w0Rd"; exit 1; fi
