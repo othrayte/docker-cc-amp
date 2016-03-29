@@ -7,7 +7,7 @@ Also installs and starts the ADS module which allows configuring further modules
 
 This container requires a valid AMP license to run
 
-## Running minecraft (with an AMP license)
+## Running minecraft (with an AMP licence)
 
 `docker run -p 8080:8080 -p 25565:25565 othrayte/amp ./start_ads.sh --module Minecraft --licence-key your-licence-key-xxxx +MinecraftModule.Minecraft.PortNumber 25565`
 
