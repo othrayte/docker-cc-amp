@@ -44,7 +44,7 @@ VOLUME ["/ampdata"]
 USER AMP
 
 # Define default command.
-CMD ["./start.sh"]
+ENTRYPOINT ["./start.sh"]
 
 RUN ln -s /ampdata /home/AMP/.ampdata
 

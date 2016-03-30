@@ -1,9 +1,21 @@
 #!/bin/bash
 set -e
 
+if [[ $1 == -- ]]; then
+    shift
+    exec "$@"
+fi
+
+if [[ $1 != [a-zA-Z]* ]]; then
+    exec "$@"
+fi
+
+# First argument must be the module name
+MODULE="$1"
+shift
+
 HOST="0.0.0.0"
 PORT="8080"
-MODULE="ADS"
 USERNAME="admin"
 PASSWORD="password"
 INSTANCE_NAME="Instance"
@@ -17,10 +29,6 @@ key="$1"
 case $key in
     -n|--instance-name)
     INSTANCE_NAME="$2"
-    shift # past argument
-    ;;
-    -m|--module)
-    MODULE="$2"
     shift # past argument
     ;;
     -l|--licence-key)
