@@ -5,7 +5,7 @@
 #
 
 # Pull base image.
-FROM debian
+FROM debian:jessie-backports
 
 # Install dependencies
 RUN apt-get update && apt-get install -y \
@@ -16,7 +16,7 @@ RUN apt-get update && apt-get install -y \
   unzip \
   git \
   wget \
-  openjdk-7-jre \
+  openjdk-8-jre \
 && rm -rf /var/lib/apt/lists/*
 
 RUN \
