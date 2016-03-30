@@ -31,20 +31,20 @@ RUN \
 # Define working directory.
 WORKDIR /home/AMP/AMP
 
-COPY start_ads.sh /home/AMP/AMP/
+COPY start.sh /home/AMP/AMP/
 
 RUN \
   mkdir /ampdata && \
   chown AMP:AMP /ampdata && \
-  chown AMP:AMP ./start_ads.sh && \
-  chmod +x ./start_ads.sh
+  chown AMP:AMP ./start.sh && \
+  chmod +x ./start.sh
 
 VOLUME ["/ampdata"]
 
 USER AMP
 
 # Define default command.
-CMD ["./start_ads.sh"]
+CMD ["./start.sh"]
 
 RUN ln -s /ampdata /home/AMP/.ampdata
 
