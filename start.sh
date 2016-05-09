@@ -3,7 +3,7 @@ set -e
 
 if [[ $# -eq 0 ]]; then
     # No arguments, they must all be passed as env vars
-    echo "Info: No direct arguments detected, expecting MODULE and LICENSE environment variables."
+    echo "Info: No direct arguments detected, expecting MODULE and LICENCE environment variables."
     if [ -z ${MODULE+x} ]; then echo "Error: The module name must be specified in the MODULE enviroment variable"; exit 1; fi
     if [ -z ${LICENCE+x} ]; then echo "Error: A licence for AMP from cubecoders.com is required and must be specified in the LICENCE environment variable"; exit 1; fi
 else
