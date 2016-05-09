@@ -1,26 +1,31 @@
 #!/bin/bash
 set -e
 
-if [[ $1 == -- ]]; then
+if [[ $# -eq 0 ]]; then
+    # No arguments, they must all be passed as env vars
+    echo "Info: No direct arguments detected, expecting MODULE and LICENSE environment variables."
+    if [ -z ${MODULE+x} ]; then echo "Error: The module name must be specified in the MODULE enviroment variable"; exit 1; fi
+    if [ -z ${LICENCE+x} ]; then echo "Error: A licence for AMP from cubecoders.com is required and must be specified in the LICENCE environment variable"; exit 1; fi
+else
+    if [[ $1 == -- ]]; then
+        shift
+        exec "$@"
+    fi
+    
+    if [[ $1 != [a-zA-Z]* ]]; then
+        exec "$@"
+    fi
+    
+    # First argument must be the module name
+    MODULE="$1"
     shift
-    exec "$@"
 fi
 
-if [[ $1 != [a-zA-Z]* ]]; then
-    exec "$@"
-fi
-
-# First argument must be the module name
-MODULE="$1"
-shift
-
-HOST="0.0.0.0"
-PORT="8080"
-USERNAME="admin"
-PASSWORD="password"
-INSTANCE_NAME="Instance"
-
-EXTRAS=()
+HOST=${HOST:-"0.0.0.0"}
+PORT=${PORT:-"8080"}
+USERNAME=${USERNAME:-"admin"}
+PASSWORD=${PASSWORD:-"password"}
+INSTANCE_NAME=${INSTANCE_NAME:-"Instance"}
 
 while [[ $# > 1 ]]
 do
@@ -63,7 +68,7 @@ esac
 shift # past argument or value
 done
 
-if [ -z ${LICENCE+x} ]; then echo "A licence for AMP from cubecoders.com is required and must be specified as --licence_key xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"; exit 1; fi
+if [ -z ${LICENCE+x} ]; then echo "Error: A licence for AMP from cubecoders.com is required and must be specified as --licence_key xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"; exit 1; fi
 
 if [ ! -d ~/.ampdata/instances/$INSTANCE_NAME/ ]; then
     echo "Creating module instance: ./ampinstmgr CreateInstance $MODULE $INSTANCE_NAME $HOST $PORT $LICENCE $PASSWORD +Core.Login.Username $USERNAME ${EXTRAS[@]}"
