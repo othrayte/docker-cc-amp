@@ -12,6 +12,7 @@ RUN apt-get update && apt-get install -y \
   lib32gcc1 \
   coreutils \
   screen \
+  tmux \
   socat \
   unzip \
   git \
