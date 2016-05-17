@@ -13,11 +13,9 @@ This container requires a valid AMP license to run
 
 This creates a docker container with the Minecraft module for AMP. You can login to the administrative console at port 8080 with the username "admin" and password "password"; change the password when you first login. From here it is a standard AMP Minecraft module.
 
-## Running inside unRAID (experimental)
-
-As there seems to be no way to use the command and args parts of the docker run script from unRAID all options must be specified as enviroment variables.
-
 ## Options
+
+Most arguments to the container, and to the AMP modules inside it, can be passed as either command line arguments or enviroment variables.
 
 | Argument | Env var | Default | Description |
 | -------- | ------- | ------- | ----------- |
