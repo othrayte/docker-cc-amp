@@ -1,23 +1,36 @@
 # AMP Dockerfile
-Dockerfile for a container that installs and starts the Application Management Panel from CubeCoders.com
+Dockerfile for a container that installs and starts a Application Management Panel module from CubeCoders.com
 
 Installs the Application Management Panel from CubeCoders.
-
-Also installs and starts the ADS module which allows configuring further modules via a web interface.
 
 This container requires a valid AMP license to run
 
 ## Running minecraft (with an AMP licence)
 
+### Using environment vars
+
+Create an enviroment variable file (called something like "amp-env.list") with ther following contents
+
+```
+LICENCE=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+EXTRAS=+MinecraftModule.Minecraft.PortNumber 25565
+```
+
+Running the container is then as simple as:
+
+`docker run -p 8080:8080 -p 25565:25565 --env-file ./amp-env.list othrayte/amp Minecraft`
+
+### Directly passing options
+
+Another method is to pass the required options directly to the container.
+
 `docker run -p 8080:8080 -p 25565:25565 othrayte/amp Minecraft --licence-key your-licence-key-xxxx +MinecraftModule.Minecraft.PortNumber 25565`
 
-This creates a docker container with the Minecraft module for AMP. You can login to the administrative console at port 8080 with the username "admin" and password "password"; change the password when you first login. From here it is a standard AMP Minecraft module.
-
-## Running inside unRAID (experimental)
-
-As there seems to be no way to use the command and args parts of the docker run script from unRAID all options must be specified as enviroment variables.
+Both of these methods create a docker container with the Minecraft module for AMP. You can login to the administrative console at port 8080 with the username "admin" and password "password"; change the password when you first login. From here it is a standard AMP Minecraft module.
 
 ## Options
+
+Most arguments to the container, and to the AMP modules inside it, can be passed as either command line arguments or enviroment variables.
 
 | Argument | Env var | Default | Description |
 | -------- | ------- | ------- | ----------- |
