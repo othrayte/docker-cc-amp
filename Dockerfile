@@ -20,7 +20,7 @@ COPY start.sh /home/AMP/AMP/
 RUN \
   mkdir /ampdata && \
   chown AMP:AMP /ampdata && \
-  chown AMP:AMP /home/AMP/AMP \
+  chown AMP:AMP /home/AMP/AMP && \
   chown AMP:AMP ./start.sh && \
   chmod +x ./start.sh
 
