@@ -1,4 +1,6 @@
 # AMP Dockerfile
+** NOTE: This is the nightly branch, it will download new and potentially unfinished builds of AMP from cube coders every time it runs **
+
 Dockerfile for a container that installs and starts a Application Management Panel module from CubeCoders.com
 
 Installs the Application Management Panel from CubeCoders.

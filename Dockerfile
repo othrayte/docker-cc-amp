@@ -5,29 +5,12 @@
 #
 
 # Pull base image.
-FROM debian
-
-# Install dependencies
-RUN apt-get update && apt-get install -y \
-  lib32gcc1 \
-  coreutils \
-  screen \
-  tmux \
-  socat \
-  unzip \
-  git \
-  wget \
-  openjdk-8-jre \
-&& rm -rf /var/lib/apt/lists/*
+FROM cubecoders/ampbase
 
 RUN \
   groupadd -r AMP && \
   useradd -r -g AMP -d /home/AMP -m AMP && \
-  mkdir /home/AMP/AMP && \
-  cd /home/AMP/AMP && \
-  wget http://cubecoders.com/Downloads/ampinstmgr.zip && \
-  unzip ampinstmgr.zip && \
-  rm -fi --interactive=never ampinstmgr.zip
+  mkdir /home/AMP/AMP
 
 # Define working directory.
 WORKDIR /home/AMP/AMP
